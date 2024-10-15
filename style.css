@@ -1,0 +1,157 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* 100% of the viewport height */
+    margin: 0;
+    background-color: #ffffff;
+    /* Optional background color */
+    user-select: none;
+    overflow: hidden;
+}
+
+* {
+    font-family: 'DotGothic16', sans-serif;
+    cursor: grab;
+}
+
+*:active {
+    cursor: grabbing;
+}
+
+/* Optional styles for the centered image */
+img {
+    margin-top: -30px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+div button {
+    width: 100px;
+    height: 30px;
+    gap: 20px;
+    color: blueviolet;
+    border-color: pink;
+}
+
+span {
+    font-size: x-large;
+    color: blueviolet;
+}
+
+div,
+span {
+    margin-bottom: 10px;
+}
+
+#balloon-container {
+    height: 100vh;
+    position: absolute;
+    padding: 1em;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    transition: opacity 500ms;
+}
+
+.balloon {
+    height: 125px;
+    width: 105px;
+    border-radius: 75% 75% 70% 70%;
+    position: relative;
+}
+
+.balloon:before {
+    content: "";
+    height: 75px;
+    width: 1px;
+    padding: 1px;
+    background-color: #FDFD96;
+    display: block;
+    position: absolute;
+    top: 125px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.balloon:after {
+    content: "▲";
+    text-align: center;
+    display: block;
+    position: absolute;
+    color: inherit;
+    top: 120px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-300vh);
+        opacity: 0;
+    }
+}
+
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ffcc00;
+    animation: explode 1s ease-out;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(8);
+        opacity: 0;
+    }
+}
+
+#thunderstorm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.raindrop {
+    position: absolute;
+    background-image: linear-gradient(to bottom, #0036, #8cef);
+    width: 3px;
+    height: 20px;
+    opacity: 0;
+}
+
+footer {
+    background-color: #ffd700;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+    z-index: 1;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.8em;
+    color: #4d4d4d;
+}
